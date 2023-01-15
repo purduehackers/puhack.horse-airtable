@@ -13,6 +13,9 @@ const airtable = {
 }
 
 export default async (req: NextRequest) => {
+  if (req.method === 'POST' || req.method === 'PUT') {
+    console.log(req.body)
+  }
   const slug = req.nextUrl.pathname.replace('/', '')
   if (slug.length === 0) {
     NextResponse.redirect(fallback)
